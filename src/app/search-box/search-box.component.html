@@ -1,0 +1,54 @@
+<div>
+  <mat-card>Filtros</mat-card>
+  <br/>
+  <mat-accordion class="example-headers-align">
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <mat-icon svgIcon="search" style="color: blue"></mat-icon>
+        </mat-panel-title>
+        <mat-panel-description style="color: blue">
+          <strong>Nombre de hotel</strong>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <form>
+        <mat-form-field>
+          <input name="filter" matInput [(ngModel)]="filters.nameFilter" placeholder="Ingrese el nombre del hotel">
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="getHotels(filters)">Aceptar</button>
+      </form>
+
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <mat-icon svgIcon="star" style="color: blue"></mat-icon>
+        </mat-panel-title>
+        <mat-panel-description style="color: blue">
+          <strong>Estrellas</strong>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <form>
+        <section>
+          <mat-list>
+            <mat-list-item>
+              <mat-checkbox name="allStarsSelect" [(ngModel)]="allStars" [disabled]="allStars" (ngModelChange)="allStarsSelected(allStars)">
+                <strong>Todas las estrellas</strong>
+              </mat-checkbox>
+            </mat-list-item>
+            <mat-list-item *ngFor="let stars of starsArray; let i = index">
+              <mat-checkbox name="filterstars" [(ngModel)]="selectedStars[i].selected" (ngModelChange)="filterSelected(i)">
+                <span *ngFor="let starIcon of stars">
+                  <mat-icon svgIcon="star" style="color: gold"></mat-icon>
+                </span>
+              </mat-checkbox>
+            </mat-list-item>
+          </mat-list>
+        </section>
+      </form>
+
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

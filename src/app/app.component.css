@@ -1,0 +1,22 @@
+.container{
+    max-width: initial !important;
+    width: 100% !important;
+    position: relative;
+    top:72px; 
+}
+.navbar{
+    position: fixed; 
+    z-index: 100;
+}
+.navbar-content{
+    position: fixed;
+}
+.navbar-row{
+    position: fixed;
+}
+.filters{}
+@media only screen and (min-width: 1023px){
+    .filters{
+        position: fixed;
+    }
+}

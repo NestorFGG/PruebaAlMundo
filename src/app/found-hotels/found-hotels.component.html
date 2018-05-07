@@ -1,0 +1,38 @@
+<div>
+  <div *ngFor="let hotel of hotels">
+    <mat-card>
+      <mat-card-content class="card-content">
+        <div class="img" [style.background-image]="generateHotelImagePath(hotel)">
+        </div>
+        <div class="hotel-information">
+          <div class="name">{{ hotel.name }}</div>
+          <div class="space-betwen-information"></div>
+          <div>
+            <span *ngFor="let star of generateStarsArray(hotel.stars)">
+              <mat-icon svgIcon="star" class="star"></mat-icon>
+            </span>
+          </div>
+          <div class="space-betwen-information"></div>
+          <div>
+            <span *ngFor="let amenitie of hotel.amenities">
+              <mat-icon [svgIcon]="registerIconAmenities(amenitie)"></mat-icon>
+            </span>
+          </div>
+        </div>
+        <br class="space-fix">
+        <div class="price-section">
+            <p>
+              Precio por noche por habitación
+            </p>
+          <div>
+            <p class="prices-text">
+              <span class="coin"> ARS </span> 
+              <span class="price">{{hotel.price}}</span>
+            </p>
+            <button mat-raised-button color="primary">Ver hotel</button>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
